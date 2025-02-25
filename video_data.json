@@ -1,0 +1,25 @@
+{
+    "title": "Deep Dive into LLMs like ChatGPT",
+    "description": "This is a general audience deep dive into the Large Language Model (LLM) AI technology...",
+    "chapters": [
+        {
+            "time": "00:00:00",
+            "title": "introduction"
+        },
+        {
+            "time": "00:01:00",
+            "title": "pretraining data (internet)"
+        }
+    ],
+    "links": [
+        {
+            "label": "ChatGPT",
+            "url": "https://chatgpt.com/"
+        },
+        {
+            "label": "FineWeb (pretraining dataset)",
+            "url": "https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1"
+        }
+    ],
+    "views": 1168945
+}
