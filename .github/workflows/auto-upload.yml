@@ -1,0 +1,39 @@
+name: Auto Upload Video Data
+
+on:
+  schedule:
+    # 每天中午 12 点执行
+    - cron: '0 12 * * *'
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install huggingface_hub
+
+      - name: Log in to Hugging Face
+        run: |
+          echo ${{ secrets.HUGGINGFACE_TOKEN }} | huggingface-cli login
+
+      - name: Upload video_data.json
+        run: |
+          python -c "
+from huggingface_hub import HfApi
+
+api = HfApi()
+api.upload_file(
+    path_or_fileobj='video_data.json',
+    path_in_repo='video_data.json',
+    repo_id='zhoucharlie/agi',
+    repo_type='dataset',
+)"
